@@ -98,7 +98,7 @@ def main():
         with open(header_path, 'r') as f:
             print(f.read())
     for cmd in out:
-        print("alias {}='{}'".format(''.join([a[0] for a in cmd]),
+        print("function {} {{ {} $args }}".format(''.join([a[0] for a in cmd]),
               ' '.join([a[1] for a in cmd])))
 
 
