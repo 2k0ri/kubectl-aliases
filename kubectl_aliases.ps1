@@ -52,6 +52,12 @@ function kdds { kubectl describe daemonset $args }
 function ksysdds { kubectl --namespace=kube-system describe daemonset $args }
 function krmds { kubectl delete daemonset $args }
 function ksysrmds { kubectl --namespace=kube-system delete daemonset $args }
+function kgsts { kubectl get statefulset $args }
+function ksysgsts { kubectl --namespace=kube-system get statefulset $args }
+function kdsts { kubectl describe statefulset $args }
+function ksysdsts { kubectl --namespace=kube-system describe statefulset $args }
+function krmsts { kubectl delete statefulset $args }
+function ksysrmsts { kubectl --namespace=kube-system delete statefulset $args }
 function kgsvc { kubectl get service $args }
 function ksysgsvc { kubectl --namespace=kube-system get service $args }
 function kdsvc { kubectl describe service $args }
@@ -89,6 +95,8 @@ function kgdepoyaml { kubectl get deployment -o=yaml $args }
 function ksysgdepoyaml { kubectl --namespace=kube-system get deployment -o=yaml $args }
 function kgdsoyaml { kubectl get daemonset -o=yaml $args }
 function ksysgdsoyaml { kubectl --namespace=kube-system get daemonset -o=yaml $args }
+function kgstsoyaml { kubectl get statefulset -o=yaml $args }
+function ksysgstsoyaml { kubectl --namespace=kube-system get statefulset -o=yaml $args }
 function kgsvcoyaml { kubectl get service -o=yaml $args }
 function ksysgsvcoyaml { kubectl --namespace=kube-system get service -o=yaml $args }
 function kgingoyaml { kubectl get ingress -o=yaml $args }
@@ -107,6 +115,8 @@ function kgdepowide { kubectl get deployment -o=wide $args }
 function ksysgdepowide { kubectl --namespace=kube-system get deployment -o=wide $args }
 function kgdsowide { kubectl get daemonset -o=wide $args }
 function ksysgdsowide { kubectl --namespace=kube-system get daemonset -o=wide $args }
+function kgstsowide { kubectl get statefulset -o=wide $args }
+function ksysgstsowide { kubectl --namespace=kube-system get statefulset -o=wide $args }
 function kgsvcowide { kubectl get service -o=wide $args }
 function ksysgsvcowide { kubectl --namespace=kube-system get service -o=wide $args }
 function kgingowide { kubectl get ingress -o=wide $args }
@@ -125,6 +135,8 @@ function kgdepojson { kubectl get deployment -o=json $args }
 function ksysgdepojson { kubectl --namespace=kube-system get deployment -o=json $args }
 function kgdsojson { kubectl get daemonset -o=json $args }
 function ksysgdsojson { kubectl --namespace=kube-system get daemonset -o=json $args }
+function kgstsojson { kubectl get statefulset -o=json $args }
+function ksysgstsojson { kubectl --namespace=kube-system get statefulset -o=json $args }
 function kgsvcojson { kubectl get service -o=json $args }
 function ksysgsvcojson { kubectl --namespace=kube-system get service -o=json $args }
 function kgingojson { kubectl get ingress -o=json $args }
@@ -143,6 +155,8 @@ function kgdepall { kubectl get deployment --all-namespaces $args }
 function kddepall { kubectl describe deployment --all-namespaces $args }
 function kgdsall { kubectl get daemonset --all-namespaces $args }
 function kddsall { kubectl describe daemonset --all-namespaces $args }
+function kgstsall { kubectl get statefulset --all-namespaces $args }
+function kdstsall { kubectl describe statefulset --all-namespaces $args }
 function kgsvcall { kubectl get service --all-namespaces $args }
 function kdsvcall { kubectl describe service --all-namespaces $args }
 function kgingall { kubectl get ingress --all-namespaces $args }
@@ -167,6 +181,8 @@ function krmdepall { kubectl delete deployment --all $args }
 function ksysrmdepall { kubectl --namespace=kube-system delete deployment --all $args }
 function krmdsall { kubectl delete daemonset --all $args }
 function ksysrmdsall { kubectl --namespace=kube-system delete daemonset --all $args }
+function krmstsall { kubectl delete statefulset --all $args }
+function ksysrmstsall { kubectl --namespace=kube-system delete statefulset --all $args }
 function krmsvcall { kubectl delete service --all $args }
 function ksysrmsvcall { kubectl --namespace=kube-system delete service --all $args }
 function krmingall { kubectl delete ingress --all $args }
@@ -184,6 +200,8 @@ function kgdepw { kubectl get deployment --watch $args }
 function ksysgdepw { kubectl --namespace=kube-system get deployment --watch $args }
 function kgdsw { kubectl get daemonset --watch $args }
 function ksysgdsw { kubectl --namespace=kube-system get daemonset --watch $args }
+function kgstsw { kubectl get statefulset --watch $args }
+function ksysgstsw { kubectl --namespace=kube-system get statefulset --watch $args }
 function kgsvcw { kubectl get service --watch $args }
 function ksysgsvcw { kubectl --namespace=kube-system get service --watch $args }
 function kgingw { kubectl get ingress --watch $args }
@@ -198,6 +216,7 @@ function kgoyamlall { kubectl get -o=yaml --all-namespaces $args }
 function kgpooyamlall { kubectl get pods -o=yaml --all-namespaces $args }
 function kgdepoyamlall { kubectl get deployment -o=yaml --all-namespaces $args }
 function kgdsoyamlall { kubectl get daemonset -o=yaml --all-namespaces $args }
+function kgstsoyamlall { kubectl get statefulset -o=yaml --all-namespaces $args }
 function kgsvcoyamlall { kubectl get service -o=yaml --all-namespaces $args }
 function kgingoyamlall { kubectl get ingress -o=yaml --all-namespaces $args }
 function kgcmoyamlall { kubectl get configmap -o=yaml --all-namespaces $args }
@@ -207,6 +226,7 @@ function kgalloyaml { kubectl get --all-namespaces -o=yaml $args }
 function kgpoalloyaml { kubectl get pods --all-namespaces -o=yaml $args }
 function kgdepalloyaml { kubectl get deployment --all-namespaces -o=yaml $args }
 function kgdsalloyaml { kubectl get daemonset --all-namespaces -o=yaml $args }
+function kgstsalloyaml { kubectl get statefulset --all-namespaces -o=yaml $args }
 function kgsvcalloyaml { kubectl get service --all-namespaces -o=yaml $args }
 function kgingalloyaml { kubectl get ingress --all-namespaces -o=yaml $args }
 function kgcmalloyaml { kubectl get configmap --all-namespaces -o=yaml $args }
@@ -220,6 +240,8 @@ function kgdepwoyaml { kubectl get deployment --watch -o=yaml $args }
 function ksysgdepwoyaml { kubectl --namespace=kube-system get deployment --watch -o=yaml $args }
 function kgdswoyaml { kubectl get daemonset --watch -o=yaml $args }
 function ksysgdswoyaml { kubectl --namespace=kube-system get daemonset --watch -o=yaml $args }
+function kgstswoyaml { kubectl get statefulset --watch -o=yaml $args }
+function ksysgstswoyaml { kubectl --namespace=kube-system get statefulset --watch -o=yaml $args }
 function kgsvcwoyaml { kubectl get service --watch -o=yaml $args }
 function ksysgsvcwoyaml { kubectl --namespace=kube-system get service --watch -o=yaml $args }
 function kgingwoyaml { kubectl get ingress --watch -o=yaml $args }
@@ -234,6 +256,7 @@ function kgowideall { kubectl get -o=wide --all-namespaces $args }
 function kgpoowideall { kubectl get pods -o=wide --all-namespaces $args }
 function kgdepowideall { kubectl get deployment -o=wide --all-namespaces $args }
 function kgdsowideall { kubectl get daemonset -o=wide --all-namespaces $args }
+function kgstsowideall { kubectl get statefulset -o=wide --all-namespaces $args }
 function kgsvcowideall { kubectl get service -o=wide --all-namespaces $args }
 function kgingowideall { kubectl get ingress -o=wide --all-namespaces $args }
 function kgcmowideall { kubectl get configmap -o=wide --all-namespaces $args }
@@ -243,6 +266,7 @@ function kgallowide { kubectl get --all-namespaces -o=wide $args }
 function kgpoallowide { kubectl get pods --all-namespaces -o=wide $args }
 function kgdepallowide { kubectl get deployment --all-namespaces -o=wide $args }
 function kgdsallowide { kubectl get daemonset --all-namespaces -o=wide $args }
+function kgstsallowide { kubectl get statefulset --all-namespaces -o=wide $args }
 function kgsvcallowide { kubectl get service --all-namespaces -o=wide $args }
 function kgingallowide { kubectl get ingress --all-namespaces -o=wide $args }
 function kgcmallowide { kubectl get configmap --all-namespaces -o=wide $args }
@@ -268,6 +292,8 @@ function kgdepwowide { kubectl get deployment --watch -o=wide $args }
 function ksysgdepwowide { kubectl --namespace=kube-system get deployment --watch -o=wide $args }
 function kgdswowide { kubectl get daemonset --watch -o=wide $args }
 function ksysgdswowide { kubectl --namespace=kube-system get daemonset --watch -o=wide $args }
+function kgstswowide { kubectl get statefulset --watch -o=wide $args }
+function ksysgstswowide { kubectl --namespace=kube-system get statefulset --watch -o=wide $args }
 function kgsvcwowide { kubectl get service --watch -o=wide $args }
 function ksysgsvcwowide { kubectl --namespace=kube-system get service --watch -o=wide $args }
 function kgingwowide { kubectl get ingress --watch -o=wide $args }
@@ -282,6 +308,7 @@ function kgojsonall { kubectl get -o=json --all-namespaces $args }
 function kgpoojsonall { kubectl get pods -o=json --all-namespaces $args }
 function kgdepojsonall { kubectl get deployment -o=json --all-namespaces $args }
 function kgdsojsonall { kubectl get daemonset -o=json --all-namespaces $args }
+function kgstsojsonall { kubectl get statefulset -o=json --all-namespaces $args }
 function kgsvcojsonall { kubectl get service -o=json --all-namespaces $args }
 function kgingojsonall { kubectl get ingress -o=json --all-namespaces $args }
 function kgcmojsonall { kubectl get configmap -o=json --all-namespaces $args }
@@ -291,6 +318,7 @@ function kgallojson { kubectl get --all-namespaces -o=json $args }
 function kgpoallojson { kubectl get pods --all-namespaces -o=json $args }
 function kgdepallojson { kubectl get deployment --all-namespaces -o=json $args }
 function kgdsallojson { kubectl get daemonset --all-namespaces -o=json $args }
+function kgstsallojson { kubectl get statefulset --all-namespaces -o=json $args }
 function kgsvcallojson { kubectl get service --all-namespaces -o=json $args }
 function kgingallojson { kubectl get ingress --all-namespaces -o=json $args }
 function kgcmallojson { kubectl get configmap --all-namespaces -o=json $args }
@@ -304,6 +332,8 @@ function kgdepwojson { kubectl get deployment --watch -o=json $args }
 function ksysgdepwojson { kubectl --namespace=kube-system get deployment --watch -o=json $args }
 function kgdswojson { kubectl get daemonset --watch -o=json $args }
 function ksysgdswojson { kubectl --namespace=kube-system get daemonset --watch -o=json $args }
+function kgstswojson { kubectl get statefulset --watch -o=json $args }
+function ksysgstswojson { kubectl --namespace=kube-system get statefulset --watch -o=json $args }
 function kgsvcwojson { kubectl get service --watch -o=json $args }
 function ksysgsvcwojson { kubectl --namespace=kube-system get service --watch -o=json $args }
 function kgingwojson { kubectl get ingress --watch -o=json $args }
@@ -324,6 +354,7 @@ function kgallw { kubectl get --all-namespaces --watch $args }
 function kgpoallw { kubectl get pods --all-namespaces --watch $args }
 function kgdepallw { kubectl get deployment --all-namespaces --watch $args }
 function kgdsallw { kubectl get daemonset --all-namespaces --watch $args }
+function kgstsallw { kubectl get statefulset --all-namespaces --watch $args }
 function kgsvcallw { kubectl get service --all-namespaces --watch $args }
 function kgingallw { kubectl get ingress --all-namespaces --watch $args }
 function kgcmallw { kubectl get configmap --all-namespaces --watch $args }
@@ -333,6 +364,7 @@ function kgwall { kubectl get --watch --all-namespaces $args }
 function kgpowall { kubectl get pods --watch --all-namespaces $args }
 function kgdepwall { kubectl get deployment --watch --all-namespaces $args }
 function kgdswall { kubectl get daemonset --watch --all-namespaces $args }
+function kgstswall { kubectl get statefulset --watch --all-namespaces $args }
 function kgsvcwall { kubectl get service --watch --all-namespaces $args }
 function kgingwall { kubectl get ingress --watch --all-namespaces $args }
 function kgcmwall { kubectl get configmap --watch --all-namespaces $args }
@@ -354,6 +386,7 @@ function kgallwoyaml { kubectl get --all-namespaces --watch -o=yaml $args }
 function kgpoallwoyaml { kubectl get pods --all-namespaces --watch -o=yaml $args }
 function kgdepallwoyaml { kubectl get deployment --all-namespaces --watch -o=yaml $args }
 function kgdsallwoyaml { kubectl get daemonset --all-namespaces --watch -o=yaml $args }
+function kgstsallwoyaml { kubectl get statefulset --all-namespaces --watch -o=yaml $args }
 function kgsvcallwoyaml { kubectl get service --all-namespaces --watch -o=yaml $args }
 function kgingallwoyaml { kubectl get ingress --all-namespaces --watch -o=yaml $args }
 function kgcmallwoyaml { kubectl get configmap --all-namespaces --watch -o=yaml $args }
@@ -363,6 +396,7 @@ function kgwoyamlall { kubectl get --watch -o=yaml --all-namespaces $args }
 function kgpowoyamlall { kubectl get pods --watch -o=yaml --all-namespaces $args }
 function kgdepwoyamlall { kubectl get deployment --watch -o=yaml --all-namespaces $args }
 function kgdswoyamlall { kubectl get daemonset --watch -o=yaml --all-namespaces $args }
+function kgstswoyamlall { kubectl get statefulset --watch -o=yaml --all-namespaces $args }
 function kgsvcwoyamlall { kubectl get service --watch -o=yaml --all-namespaces $args }
 function kgingwoyamlall { kubectl get ingress --watch -o=yaml --all-namespaces $args }
 function kgcmwoyamlall { kubectl get configmap --watch -o=yaml --all-namespaces $args }
@@ -372,6 +406,7 @@ function kgwalloyaml { kubectl get --watch --all-namespaces -o=yaml $args }
 function kgpowalloyaml { kubectl get pods --watch --all-namespaces -o=yaml $args }
 function kgdepwalloyaml { kubectl get deployment --watch --all-namespaces -o=yaml $args }
 function kgdswalloyaml { kubectl get daemonset --watch --all-namespaces -o=yaml $args }
+function kgstswalloyaml { kubectl get statefulset --watch --all-namespaces -o=yaml $args }
 function kgsvcwalloyaml { kubectl get service --watch --all-namespaces -o=yaml $args }
 function kgingwalloyaml { kubectl get ingress --watch --all-namespaces -o=yaml $args }
 function kgcmwalloyaml { kubectl get configmap --watch --all-namespaces -o=yaml $args }
@@ -399,6 +434,7 @@ function kgallwowide { kubectl get --all-namespaces --watch -o=wide $args }
 function kgpoallwowide { kubectl get pods --all-namespaces --watch -o=wide $args }
 function kgdepallwowide { kubectl get deployment --all-namespaces --watch -o=wide $args }
 function kgdsallwowide { kubectl get daemonset --all-namespaces --watch -o=wide $args }
+function kgstsallwowide { kubectl get statefulset --all-namespaces --watch -o=wide $args }
 function kgsvcallwowide { kubectl get service --all-namespaces --watch -o=wide $args }
 function kgingallwowide { kubectl get ingress --all-namespaces --watch -o=wide $args }
 function kgcmallwowide { kubectl get configmap --all-namespaces --watch -o=wide $args }
@@ -408,6 +444,7 @@ function kgwowideall { kubectl get --watch -o=wide --all-namespaces $args }
 function kgpowowideall { kubectl get pods --watch -o=wide --all-namespaces $args }
 function kgdepwowideall { kubectl get deployment --watch -o=wide --all-namespaces $args }
 function kgdswowideall { kubectl get daemonset --watch -o=wide --all-namespaces $args }
+function kgstswowideall { kubectl get statefulset --watch -o=wide --all-namespaces $args }
 function kgsvcwowideall { kubectl get service --watch -o=wide --all-namespaces $args }
 function kgingwowideall { kubectl get ingress --watch -o=wide --all-namespaces $args }
 function kgcmwowideall { kubectl get configmap --watch -o=wide --all-namespaces $args }
@@ -417,6 +454,7 @@ function kgwallowide { kubectl get --watch --all-namespaces -o=wide $args }
 function kgpowallowide { kubectl get pods --watch --all-namespaces -o=wide $args }
 function kgdepwallowide { kubectl get deployment --watch --all-namespaces -o=wide $args }
 function kgdswallowide { kubectl get daemonset --watch --all-namespaces -o=wide $args }
+function kgstswallowide { kubectl get statefulset --watch --all-namespaces -o=wide $args }
 function kgsvcwallowide { kubectl get service --watch --all-namespaces -o=wide $args }
 function kgingwallowide { kubectl get ingress --watch --all-namespaces -o=wide $args }
 function kgcmwallowide { kubectl get configmap --watch --all-namespaces -o=wide $args }
@@ -444,6 +482,7 @@ function kgallwojson { kubectl get --all-namespaces --watch -o=json $args }
 function kgpoallwojson { kubectl get pods --all-namespaces --watch -o=json $args }
 function kgdepallwojson { kubectl get deployment --all-namespaces --watch -o=json $args }
 function kgdsallwojson { kubectl get daemonset --all-namespaces --watch -o=json $args }
+function kgstsallwojson { kubectl get statefulset --all-namespaces --watch -o=json $args }
 function kgsvcallwojson { kubectl get service --all-namespaces --watch -o=json $args }
 function kgingallwojson { kubectl get ingress --all-namespaces --watch -o=json $args }
 function kgcmallwojson { kubectl get configmap --all-namespaces --watch -o=json $args }
@@ -453,6 +492,7 @@ function kgwojsonall { kubectl get --watch -o=json --all-namespaces $args }
 function kgpowojsonall { kubectl get pods --watch -o=json --all-namespaces $args }
 function kgdepwojsonall { kubectl get deployment --watch -o=json --all-namespaces $args }
 function kgdswojsonall { kubectl get daemonset --watch -o=json --all-namespaces $args }
+function kgstswojsonall { kubectl get statefulset --watch -o=json --all-namespaces $args }
 function kgsvcwojsonall { kubectl get service --watch -o=json --all-namespaces $args }
 function kgingwojsonall { kubectl get ingress --watch -o=json --all-namespaces $args }
 function kgcmwojsonall { kubectl get configmap --watch -o=json --all-namespaces $args }
@@ -462,6 +502,7 @@ function kgwallojson { kubectl get --watch --all-namespaces -o=json $args }
 function kgpowallojson { kubectl get pods --watch --all-namespaces -o=json $args }
 function kgdepwallojson { kubectl get deployment --watch --all-namespaces -o=json $args }
 function kgdswallojson { kubectl get daemonset --watch --all-namespaces -o=json $args }
+function kgstswallojson { kubectl get statefulset --watch --all-namespaces -o=json $args }
 function kgsvcwallojson { kubectl get service --watch --all-namespaces -o=json $args }
 function kgingwallojson { kubectl get ingress --watch --all-namespaces -o=json $args }
 function kgcmwallojson { kubectl get configmap --watch --all-namespaces -o=json $args }
@@ -563,6 +604,12 @@ function kddsl { kubectl describe daemonset -l $args }
 function ksysddsl { kubectl --namespace=kube-system describe daemonset -l $args }
 function krmdsl { kubectl delete daemonset -l $args }
 function ksysrmdsl { kubectl --namespace=kube-system delete daemonset -l $args }
+function kgstsl { kubectl get statefulset -l $args }
+function ksysgstsl { kubectl --namespace=kube-system get statefulset -l $args }
+function kdstsl { kubectl describe statefulset -l $args }
+function ksysdstsl { kubectl --namespace=kube-system describe statefulset -l $args }
+function krmstsl { kubectl delete statefulset -l $args }
+function ksysrmstsl { kubectl --namespace=kube-system delete statefulset -l $args }
 function kgsvcl { kubectl get service -l $args }
 function ksysgsvcl { kubectl --namespace=kube-system get service -l $args }
 function kdsvcl { kubectl describe service -l $args }
@@ -600,6 +647,8 @@ function kgdepoyamll { kubectl get deployment -o=yaml -l $args }
 function ksysgdepoyamll { kubectl --namespace=kube-system get deployment -o=yaml -l $args }
 function kgdsoyamll { kubectl get daemonset -o=yaml -l $args }
 function ksysgdsoyamll { kubectl --namespace=kube-system get daemonset -o=yaml -l $args }
+function kgstsoyamll { kubectl get statefulset -o=yaml -l $args }
+function ksysgstsoyamll { kubectl --namespace=kube-system get statefulset -o=yaml -l $args }
 function kgsvcoyamll { kubectl get service -o=yaml -l $args }
 function ksysgsvcoyamll { kubectl --namespace=kube-system get service -o=yaml -l $args }
 function kgingoyamll { kubectl get ingress -o=yaml -l $args }
@@ -618,6 +667,8 @@ function kgdepowidel { kubectl get deployment -o=wide -l $args }
 function ksysgdepowidel { kubectl --namespace=kube-system get deployment -o=wide -l $args }
 function kgdsowidel { kubectl get daemonset -o=wide -l $args }
 function ksysgdsowidel { kubectl --namespace=kube-system get daemonset -o=wide -l $args }
+function kgstsowidel { kubectl get statefulset -o=wide -l $args }
+function ksysgstsowidel { kubectl --namespace=kube-system get statefulset -o=wide -l $args }
 function kgsvcowidel { kubectl get service -o=wide -l $args }
 function ksysgsvcowidel { kubectl --namespace=kube-system get service -o=wide -l $args }
 function kgingowidel { kubectl get ingress -o=wide -l $args }
@@ -636,6 +687,8 @@ function kgdepojsonl { kubectl get deployment -o=json -l $args }
 function ksysgdepojsonl { kubectl --namespace=kube-system get deployment -o=json -l $args }
 function kgdsojsonl { kubectl get daemonset -o=json -l $args }
 function ksysgdsojsonl { kubectl --namespace=kube-system get daemonset -o=json -l $args }
+function kgstsojsonl { kubectl get statefulset -o=json -l $args }
+function ksysgstsojsonl { kubectl --namespace=kube-system get statefulset -o=json -l $args }
 function kgsvcojsonl { kubectl get service -o=json -l $args }
 function ksysgsvcojsonl { kubectl --namespace=kube-system get service -o=json -l $args }
 function kgingojsonl { kubectl get ingress -o=json -l $args }
@@ -660,6 +713,8 @@ function kgdepwl { kubectl get deployment --watch -l $args }
 function ksysgdepwl { kubectl --namespace=kube-system get deployment --watch -l $args }
 function kgdswl { kubectl get daemonset --watch -l $args }
 function ksysgdswl { kubectl --namespace=kube-system get daemonset --watch -l $args }
+function kgstswl { kubectl get statefulset --watch -l $args }
+function ksysgstswl { kubectl --namespace=kube-system get statefulset --watch -l $args }
 function kgsvcwl { kubectl get service --watch -l $args }
 function ksysgsvcwl { kubectl --namespace=kube-system get service --watch -l $args }
 function kgingwl { kubectl get ingress --watch -l $args }
@@ -678,6 +733,8 @@ function kgdepwoyamll { kubectl get deployment --watch -o=yaml -l $args }
 function ksysgdepwoyamll { kubectl --namespace=kube-system get deployment --watch -o=yaml -l $args }
 function kgdswoyamll { kubectl get daemonset --watch -o=yaml -l $args }
 function ksysgdswoyamll { kubectl --namespace=kube-system get daemonset --watch -o=yaml -l $args }
+function kgstswoyamll { kubectl get statefulset --watch -o=yaml -l $args }
+function ksysgstswoyamll { kubectl --namespace=kube-system get statefulset --watch -o=yaml -l $args }
 function kgsvcwoyamll { kubectl get service --watch -o=yaml -l $args }
 function ksysgsvcwoyamll { kubectl --namespace=kube-system get service --watch -o=yaml -l $args }
 function kgingwoyamll { kubectl get ingress --watch -o=yaml -l $args }
@@ -708,6 +765,8 @@ function kgdepwowidel { kubectl get deployment --watch -o=wide -l $args }
 function ksysgdepwowidel { kubectl --namespace=kube-system get deployment --watch -o=wide -l $args }
 function kgdswowidel { kubectl get daemonset --watch -o=wide -l $args }
 function ksysgdswowidel { kubectl --namespace=kube-system get daemonset --watch -o=wide -l $args }
+function kgstswowidel { kubectl get statefulset --watch -o=wide -l $args }
+function ksysgstswowidel { kubectl --namespace=kube-system get statefulset --watch -o=wide -l $args }
 function kgsvcwowidel { kubectl get service --watch -o=wide -l $args }
 function ksysgsvcwowidel { kubectl --namespace=kube-system get service --watch -o=wide -l $args }
 function kgingwowidel { kubectl get ingress --watch -o=wide -l $args }
@@ -726,6 +785,8 @@ function kgdepwojsonl { kubectl get deployment --watch -o=json -l $args }
 function ksysgdepwojsonl { kubectl --namespace=kube-system get deployment --watch -o=json -l $args }
 function kgdswojsonl { kubectl get daemonset --watch -o=json -l $args }
 function ksysgdswojsonl { kubectl --namespace=kube-system get daemonset --watch -o=json -l $args }
+function kgstswojsonl { kubectl get statefulset --watch -o=json -l $args }
+function ksysgstswojsonl { kubectl --namespace=kube-system get statefulset --watch -o=json -l $args }
 function kgsvcwojsonl { kubectl get service --watch -o=json -l $args }
 function ksysgsvcwojsonl { kubectl --namespace=kube-system get service --watch -o=json -l $args }
 function kgingwojsonl { kubectl get ingress --watch -o=json -l $args }
@@ -781,6 +842,9 @@ function krmdepn { kubectl delete deployment --namespace $args }
 function kgdsn { kubectl get daemonset --namespace $args }
 function kddsn { kubectl describe daemonset --namespace $args }
 function krmdsn { kubectl delete daemonset --namespace $args }
+function kgstsn { kubectl get statefulset --namespace $args }
+function kdstsn { kubectl describe statefulset --namespace $args }
+function krmstsn { kubectl delete statefulset --namespace $args }
 function kgsvcn { kubectl get service --namespace $args }
 function kdsvcn { kubectl describe service --namespace $args }
 function krmsvcn { kubectl delete service --namespace $args }
@@ -797,6 +861,7 @@ function kgoyamln { kubectl get -o=yaml --namespace $args }
 function kgpooyamln { kubectl get pods -o=yaml --namespace $args }
 function kgdepoyamln { kubectl get deployment -o=yaml --namespace $args }
 function kgdsoyamln { kubectl get daemonset -o=yaml --namespace $args }
+function kgstsoyamln { kubectl get statefulset -o=yaml --namespace $args }
 function kgsvcoyamln { kubectl get service -o=yaml --namespace $args }
 function kgingoyamln { kubectl get ingress -o=yaml --namespace $args }
 function kgcmoyamln { kubectl get configmap -o=yaml --namespace $args }
@@ -805,6 +870,7 @@ function kgowiden { kubectl get -o=wide --namespace $args }
 function kgpoowiden { kubectl get pods -o=wide --namespace $args }
 function kgdepowiden { kubectl get deployment -o=wide --namespace $args }
 function kgdsowiden { kubectl get daemonset -o=wide --namespace $args }
+function kgstsowiden { kubectl get statefulset -o=wide --namespace $args }
 function kgsvcowiden { kubectl get service -o=wide --namespace $args }
 function kgingowiden { kubectl get ingress -o=wide --namespace $args }
 function kgcmowiden { kubectl get configmap -o=wide --namespace $args }
@@ -813,6 +879,7 @@ function kgojsonn { kubectl get -o=json --namespace $args }
 function kgpoojsonn { kubectl get pods -o=json --namespace $args }
 function kgdepojsonn { kubectl get deployment -o=json --namespace $args }
 function kgdsojsonn { kubectl get daemonset -o=json --namespace $args }
+function kgstsojsonn { kubectl get statefulset -o=json --namespace $args }
 function kgsvcojsonn { kubectl get service -o=json --namespace $args }
 function kgingojsonn { kubectl get ingress -o=json --namespace $args }
 function kgcmojsonn { kubectl get configmap -o=json --namespace $args }
@@ -824,6 +891,7 @@ function kgwn { kubectl get --watch --namespace $args }
 function kgpown { kubectl get pods --watch --namespace $args }
 function kgdepwn { kubectl get deployment --watch --namespace $args }
 function kgdswn { kubectl get daemonset --watch --namespace $args }
+function kgstswn { kubectl get statefulset --watch --namespace $args }
 function kgsvcwn { kubectl get service --watch --namespace $args }
 function kgingwn { kubectl get ingress --watch --namespace $args }
 function kgcmwn { kubectl get configmap --watch --namespace $args }
@@ -832,6 +900,7 @@ function kgwoyamln { kubectl get --watch -o=yaml --namespace $args }
 function kgpowoyamln { kubectl get pods --watch -o=yaml --namespace $args }
 function kgdepwoyamln { kubectl get deployment --watch -o=yaml --namespace $args }
 function kgdswoyamln { kubectl get daemonset --watch -o=yaml --namespace $args }
+function kgstswoyamln { kubectl get statefulset --watch -o=yaml --namespace $args }
 function kgsvcwoyamln { kubectl get service --watch -o=yaml --namespace $args }
 function kgingwoyamln { kubectl get ingress --watch -o=yaml --namespace $args }
 function kgcmwoyamln { kubectl get configmap --watch -o=yaml --namespace $args }
@@ -846,6 +915,7 @@ function kgwowiden { kubectl get --watch -o=wide --namespace $args }
 function kgpowowiden { kubectl get pods --watch -o=wide --namespace $args }
 function kgdepwowiden { kubectl get deployment --watch -o=wide --namespace $args }
 function kgdswowiden { kubectl get daemonset --watch -o=wide --namespace $args }
+function kgstswowiden { kubectl get statefulset --watch -o=wide --namespace $args }
 function kgsvcwowiden { kubectl get service --watch -o=wide --namespace $args }
 function kgingwowiden { kubectl get ingress --watch -o=wide --namespace $args }
 function kgcmwowiden { kubectl get configmap --watch -o=wide --namespace $args }
@@ -854,6 +924,7 @@ function kgwojsonn { kubectl get --watch -o=json --namespace $args }
 function kgpowojsonn { kubectl get pods --watch -o=json --namespace $args }
 function kgdepwojsonn { kubectl get deployment --watch -o=json --namespace $args }
 function kgdswojsonn { kubectl get daemonset --watch -o=json --namespace $args }
+function kgstswojsonn { kubectl get statefulset --watch -o=json --namespace $args }
 function kgsvcwojsonn { kubectl get service --watch -o=json --namespace $args }
 function kgingwojsonn { kubectl get ingress --watch -o=json --namespace $args }
 function kgcmwojsonn { kubectl get configmap --watch -o=json --namespace $args }

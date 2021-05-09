@@ -51,6 +51,7 @@ def main():
         ('po', 'pods', ['g', 'd', 'rm'], None),
         ('dep', 'deployment', ['g', 'd', 'rm'], None),
         ('ds', 'daemonset', ['g', 'd', 'rm'], None),
+        ('sts', 'statefulset', ['g', 'd', 'rm'], None),
         ('svc', 'service', ['g', 'd', 'rm'], None),
         ('ing', 'ingress', ['g', 'd', 'rm'], None),
         ('cm', 'configmap', ['g', 'd', 'rm'], None),
